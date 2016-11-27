@@ -1,6 +1,4 @@
 FROM node:6
-# Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions.
-# This is not npm registry.
 
 MAINTAINER Matej Nemcek <ybdaba@gmail.com>
 
@@ -11,13 +9,11 @@ VOLUME ["/data"]
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's dependencies:
 ADD package.json /tmp/package.json
-# RUN cd /tmp && npm i
 # save some trees
 RUN cd /tmp && npm set progress=false && npm i --no-color && npm dedupe
 RUN mkdir -p /src && cp -a /tmp/node_modules /src
 
 ADD . /src
-#RUN npm link
 
 ENV BASE_URL='http://127.0.0.1:5080'
 ENV DATA_DIRECTORY='/data'
