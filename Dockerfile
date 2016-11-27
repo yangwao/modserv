@@ -1,4 +1,6 @@
 FROM node:6
+# Add this Docker container to your orchestration and enjoy near-instantaneous package dependency resolutions.
+# This is not npm registry.
 
 MAINTAINER Matej Nemcek <ybdaba@gmail.com>
 
