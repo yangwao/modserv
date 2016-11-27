@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  local-npm:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10M"
+        max-file: "2"
+    environment:
+      - BASE_URL=http://127.0.0.1:5080
+      - DATA_DIRECTORY=/data
+      - REMOTE_REGISTRY=https://registry.npmjs.org
+      - REMOTE_REGISTRY_SKIMDB=https://skimdb.npmjs.com/registry
+    volumes:
+      - "./data:/data"
