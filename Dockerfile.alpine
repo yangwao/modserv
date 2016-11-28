@@ -9,8 +9,7 @@ VOLUME ["/data"]
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's dependencies:
 ADD package.json /tmp/package.json
-# save some trees
-RUN cd /tmp && npm set progress=false && npm i --no-color && npm dedupe
+RUN cd /tmp && npm set progress=false && npm i --no-color
 RUN mkdir -p /src && cp -a /tmp/node_modules /src
 
 ADD . /src
