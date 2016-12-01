@@ -1,0 +1,15 @@
+local-npm:
+  image: yangwao/local-npm:aarch64
+  net: "host"
+  restart: "always"
+  log_driver: "json-file"
+  log_opt:
+    max-size: "10M"
+    max-file: "2"
+  environment:
+    - BASE_URL=http://127.0.0.1:5080
+    - DATA_DIRECTORY=/data
+    - REMOTE_REGISTRY=https://registry.npmjs.org
+    - REMOTE_REGISTRY_SKIMDB=https://replicate.npmjs.com
+  volumes:
+    - "./data:/data"
