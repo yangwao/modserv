@@ -4,7 +4,7 @@ services:
   local-npm:
     build:
       context: ./
-      dockerfile: Dockerfile.alpine
+      dockerfile: Dockerfile.aarch64-slim
     logging:
       driver: "json-file"
       options:
