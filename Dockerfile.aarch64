@@ -1,4 +1,4 @@
-FROM aarch64/node:6.9-slim
+FROM aarch64/node:6.9
 
 MAINTAINER Matej Nemcek <ybdaba@gmail.com>
 
@@ -9,7 +9,7 @@ VOLUME ["/data"]
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's dependencies:
 ADD package.json /tmp/package.json
-RUN cd /tmp && npm i
+RUN cd /tmp && npm set progress=false && npm i --no-color
 RUN mkdir -p /src && cp -a /tmp/node_modules /src
 
 ADD . /src
