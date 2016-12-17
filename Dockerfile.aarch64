@@ -1,4 +1,4 @@
-FROM aarch64/node:6.9
+FROM aarch64/node:7.2.1
 
 MAINTAINER Matej Nemcek <ybdaba@gmail.com>
 
