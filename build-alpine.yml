@@ -5,11 +5,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.alpine
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10M"
-        max-file: "2"
     environment:
       - BASE_URL=http://127.0.0.1:5080
       - DATA_DIRECTORY=/data
@@ -17,3 +12,8 @@ services:
       - REMOTE_REGISTRY_SKIMDB=https://replicate.npmjs.com
     volumes:
       - "./data:/data"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10M"
+        max-file: "2"
