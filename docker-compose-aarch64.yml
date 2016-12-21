@@ -1,5 +1,5 @@
 local-npm:
-  image: yangwao/local-npm:aarch64
+  image: yangwao/local-npm:aarch64-latest
   net: "host"
   environment:
     - BASE_URL=http://127.0.0.1:5080
